@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.SubCategoriesActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/primary"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            app:title="Категория"
+            app:titleEnabled="true"
+            app:maxLines="2"
+            app:expandedTitleTextAppearance="@style/ExpandedTitleTextAppearance"
+            app:collapsedTitleTextAppearance="@style/CollapsedTitleTextAppearance">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_category"
+                    android:layout_width="@dimen/_320sdp"
+                    android:layout_height="@dimen/_320sdp"
+                    android:src="@drawable/category"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerCrop"
+                    android:layout_marginRight="-200dp"
+                    android:layout_alignParentEnd="true"
+                    android:alpha="0.5"/>
+
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tool_bar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/advices_card"
+                app:cardBackgroundColor="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_recycle"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:src="@drawable/ic_recycling"
+                        android:layout_marginRight="-30dp"
+                        android:layout_marginTop="-30dp"
+                        android:layout_alignParentEnd="true"
+                        android:alpha="0.15"
+                        android:rotation="-20"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/title_advice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Советы"
+                            android:fontFamily="@font/gilroy_bold"
+                            android:textSize="@dimen/_15sdp"
+                            android:textColor="@color/black"
+                            android:padding="@dimen/_10sdp"/>
+
+                        <LinearLayout
+                            android:layout_marginTop="-20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="•"
+                                android:fontFamily="@font/gilroy_bold"
+                                android:textSize="@dimen/_14sdp"
+                                android:textColor="@color/primary"
+                                android:padding="@dimen/_10sdp"/>
+
+                            <TextView
+                                android:layout_marginStart="-20dp"
+                                android:id="@+id/advice_description_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Совет 1"
+                                android:fontFamily="@font/gilroy_light"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:padding="@dimen/_10sdp"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="-20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="•"
+                                android:fontFamily="@font/gilroy_bold"
+                                android:textSize="@dimen/_14sdp"
+                                android:textColor="@color/primary"
+                                android:padding="@dimen/_10sdp"/>
+
+                            <TextView
+                                android:layout_marginStart="-20dp"
+                                android:id="@+id/advice_description_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Совет 2"
+                                android:fontFamily="@font/gilroy_light"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:padding="@dimen/_10sdp"
+                                />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="-20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="•"
+                                android:fontFamily="@font/gilroy_bold"
+                                android:textSize="@dimen/_14sdp"
+                                android:textColor="@color/primary"
+                                android:padding="@dimen/_10sdp"/>
+
+                            <TextView
+                                android:layout_marginStart="-20dp"
+                                android:id="@+id/advice_description_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Совет 3"
+                                android:fontFamily="@font/gilroy_light"
+                                android:textSize="@dimen/_14sdp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:padding="@dimen/_10sdp"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintTop_toBottomOf="@id/advices_card"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rec_view_subcategories"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/item_subcategory"
+                    android:nestedScrollingEnabled="false"/>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

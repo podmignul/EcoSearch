@@ -1,0 +1,193 @@
+@startuml
+
+!theme plain
+
+class MainActivity {
+  -mNavController: NavController
+  +onCreate(savedInstanceState: Bundle?)
+  +onStart()
+  +onStop()
+}
+
+class MapFragment {
+  -mapView: MapView
+  -fusedLocationClient: FusedLocationProviderClient
+  -searchManager: SearchManager
+  -searchSession: Session
+  -mapViewModel: MapViewModel
+  -hasLocationPermission: Boolean
+  -requestLocationPermission()
+  -getCurrentLocation()
+  -moveToCurrentLocation()
+  -performSearch(query: String)
+  +onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
+  +onSearchResponse(response: Response)
+  +onSearchError(p0: Error)
+  +onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray)
+  +onStart()
+  +onStop()
+}
+
+class HomeFragment {
+  -recViewAdvices: RecyclerView
+  -factDescriptionTextView: TextView
+  -randomFactCard: CardView
+  -tvAdvices: TextView
+  -progressBar: ProgressBar
+  -advicesAdapter: AdvicesAdapter
+  -homeViewModel: HomeViewModel
+  -imgInfo: ImageView
+  +onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
+  +onViewCreated(view: View, savedInstanceState: Bundle?)
+  -showPopupMenu()
+  -showAboutDialog()
+}
+
+class HomeViewModel {
+  -mAdvicesData: MutableLiveData<List<AdvicesModel>>
+  -mFactDescription: MutableLiveData<String>
+  -dbRef: DatabaseReference
+  +advicesData: LiveData<List<AdvicesModel>>
+  +factDescription: LiveData<String>
+  +fetchAdvicesData()
+  +fetchRandomFact()
+}
+
+class AdvicesAdapter {
+  -advicesList: MutableList<AdvicesModel>
+  +onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder
+  +onBindViewHolder(holder: ViewHolder, position: Int)
+  +getItemCount(): Int
+  +setData(data: List<AdvicesModel>)
+}
+
+class AdvicesModel {
+  -adviceID: String
+  -adviceName: String
+  -adviceDescription: String
+  +AdvicesModel(adviceID: String, adviceName: String, adviceDescription: String)
+  +getAdviceID(): String
+  +getAdviceName(): String
+  +getAdviceDescription(): String
+}
+
+class FactsModel {
+  -factID: String
+  -factDescription: String
+  +FactsModel(factID: String, factDescription: String)
+  +getFactID(): String
+  +getFactDescription(): String
+}
+
+class MapViewModel {
+  -mMapObjects: MutableLiveData<MapObjectCollection>
+  -mPlacemarkIcon: MutableLiveData<PlacemarkIcon?>
+  +mapObjects: LiveData<MapObjectCollection>
+  +placemarkIcon: LiveData<PlacemarkIcon?>
+  +addPlacemarkIcon(icon: PlacemarkIcon)
+  +clearMapObjects()
+}
+
+class CategoriesFragment {
+  -recViewCategories: RecyclerView
+  -categoriesAdapter: CategoriesAdapter
+  -progressBar: ProgressBar
+  -imgInfo: ImageView
+  -viewModel: CategoriesViewModel
+  +onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
+  +onViewCreated(view: View, savedInstanceState: Bundle?)
+  -showPopupMenu()
+  -showAboutDialog()
+}
+
+class CategoriesViewModel {
+  -_categoriesData: MutableLiveData<List<CategoriesModel>>
+  -dbRef: DatabaseReference
+  +categoriesData: LiveData<List<CategoriesModel>>
+  +CategoriesViewModel()
+  +fetchCategoriesData()
+}
+
+class CategoriesAdapter {
+  -mCategoriesList: List<CategoriesModel>
+  +onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder
+  +onBindViewHolder(holder: ViewHolder, position: Int)
+  +getItemCount(): Int
+  +updateData(newList: List<CategoriesModel>)
+}
+
+class CategoriesModel {
+  -categoryID: String
+  -categoryName: String
+  -categoryDescription1: String
+  -categoryDescription2: String
+  -categoryDescription3: String
+  -categoryImagePath: String
+  +CategoriesModel(categoryID: String, categoryName: String, categoryDescription1: String, categoryDescription2: String, categoryDescription3: String, categoryImagePath: String)
+  +getCategoryID(): String
+  +getCategoryName(): String
+  +getCategoryDescription1(): String
+  +getCategoryDescription2(): String
+  +getCategoryDescription3(): String
+  +getCategoryImagePath(): String
+}
+
+class SubCategoriesActivity {
+  -recViewSubCategories: RecyclerView
+  -subCategoriesAdapter: SubCategoriesAdapter
+  -subCategoriesViewModel: SubCategoriesViewModel
+  -categoryName: String
+  +onCreate(savedInstanceState: Bundle?)
+}
+
+class SubCategoriesViewModel {
+  -mSubCategoriesData: MutableLiveData<List<SubCategoriesModel>>
+  +subCategoriesData: LiveData<List<SubCategoriesModel>>
+  +fetchSubCategoriesData(categoryName: String)
+}
+
+class SubCategoriesAdapter {
+  -subCategoriesList: List<SubCategoriesModel>
+  +SubCategoriesAdapter(subCategoriesList: List<SubCategoriesModel>)
+  +onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder
+  +onBindViewHolder(holder: ViewHolder, position: Int)
+  +getItemCount(): Int
+  +setData(data: List<SubCategoriesModel>)
+  +ViewHolder(itemView: View)
+}
+
+class SubCategoriesModel {
+  -categoryInfoID: String
+  -categoryInfoNumber: String
+  -categoryInfoLabel: String
+  -categoryInfoName: String
+  -categoryInfoDescription: String
+  -categoryInfoItems: String
+  -categoryName: String
+  +SubCategoriesModel(categoryInfoID: String, categoryInfoNumber: String, categoryInfoLabel: String, categoryInfoName: String, categoryInfoDescription: String, categoryInfoItems: String, categoryName: String)
+  +getCategoryInfoID(): String
+  +getCategoryInfoNumber(): String
+  +getCategoryInfoLabel(): String
+  +getCategoryInfoName(): String
+  +getCategoryInfoDescription(): String
+  +getCategoryInfoItems(): String
+  +getCategoryName(): String
+}
+
+MainActivity --> HomeFragment
+MainActivity --> MapFragment
+MainActivity --> CategoriesFragment
+HomeFragment --> HomeViewModel
+HomeViewModel --> AdvicesModel
+HomeViewModel --> FactsModel
+HomeFragment --> AdvicesAdapter
+MapFragment --> MapViewModel
+CategoriesFragment --> CategoriesViewModel
+CategoriesViewModel --> CategoriesModel
+CategoriesFragment --> CategoriesAdapter
+CategoriesFragment --> SubCategoriesActivity
+SubCategoriesActivity --> SubCategoriesViewModel
+SubCategoriesViewModel --> SubCategoriesModel
+SubCategoriesActivity --> SubCategoriesAdapter
+
+@enduml

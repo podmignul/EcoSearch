@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Главная"
+        android:icon="@drawable/ic_home"
+        android:id="@+id/homeFragment"/>
+
+    <item android:title="Карта"
+        android:icon="@drawable/ic_map"
+        android:id="@+id/mapFragment"/>
+
+    <item android:title="Памятка"
+        android:icon="@drawable/ic_categories"
+        android:id="@+id/categoriesFragment"/>
+</menu>

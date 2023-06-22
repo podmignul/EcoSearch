@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.MainActivity">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Заголовок -->
+
+            <TextView
+                android:id="@+id/text_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:text="Главная"
+                android:fontFamily="@font/gilroy_bold"
+                android:textColor="@color/accent"
+                android:textSize="@dimen/_25sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <!-- Меню "О программе" -->
+
+            <ImageView
+                android:id="@+id/img_info"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:src="@drawable/ic_info"
+                app:layout_constraintTop_toTopOf="@id/text_home"
+                app:layout_constraintEnd_toEndOf="@id/text_home"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <!-- Факты -->
+
+            <TextView
+                android:id="@+id/tv_facts"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Интересный факт"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_17sdp"
+                app:layout_constraintStart_toStartOf="@id/text_home"
+                app:layout_constraintTop_toBottomOf="@id/text_home"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/random_fact_card"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_25sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_facts">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/img_category"
+                        android:layout_width="@dimen/_200sdp"
+                        android:layout_height="@dimen/_200sdp"
+                        android:src="@drawable/leaf"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="-110dp"
+                        android:layout_alignParentEnd="true"
+                        android:rotation="-160"/>
+
+                    <TextView
+                        android:id="@+id/text_fact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginEnd="-70dp"
+                        android:layout_toStartOf="@+id/img_category"
+                        android:fontFamily="@font/gilroy_light"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Текст"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14sdp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Советы -->
+
+            <TextView
+                android:id="@+id/tv_advices"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:text="Советы"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_17sdp"
+                app:layout_constraintStart_toStartOf="@id/text_home"
+                app:layout_constraintTop_toBottomOf="@id/random_fact_card"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rec_view_advices"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_advices"
+                tools:itemCount="10"
+                android:orientation="vertical"
+                tools:listitem="@layout/item_advice"
+                android:nestedScrollingEnabled="false"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:visibility="visible"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

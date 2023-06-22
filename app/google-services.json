@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "436526595534",
+    "project_id": "recycle-app-5da3d",
+    "storage_bucket": "recycle-app-5da3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436526595534:android:536bc0fce86f419c543f9f",
+        "android_client_info": {
+          "package_name": "ru.samsung.itacademy.mdev.recycleapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436526595534-ht7frt3ch5hi68k19m1dp6ng4skrndth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYRb2XNDI62PMc2v9QfqLHq8o4ll2YByM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436526595534-ht7frt3ch5hi68k19m1dp6ng4skrndth.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

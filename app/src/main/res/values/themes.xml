@@ -1,0 +1,40 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="Theme.RecycleApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/accent</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/primary</item>
+        <item name="colorSecondaryVariant">@color/accent</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:fontFamily">@font/gilroy_medium</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="ThemeOverlay.Search" parent="Theme.RecycleApp">
+        <item name="editTextColor">@color/black</item>
+        <item name="android:textColorHint">@color/hint</item>
+    </style>
+
+    <style name="ExpandedTitleTextAppearance" parent="TextAppearance.Design.CollapsingToolbar.Expanded">
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/gilroy_bold</item>
+        <item name="android:textSize">@dimen/_30sdp</item>
+    </style>
+
+    <style name="CollapsedTitleTextAppearance" parent="TextAppearance.Design.CollapsingToolbar.Expanded">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_20sdp</item>
+        <item name="fontFamily">@font/gilroy_bold</item>
+    </style>
+
+    <style name="CustomPopupMenu" parent="@style/Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@drawable/popup_menu_background</item>
+    </style>
+
+</resources>
